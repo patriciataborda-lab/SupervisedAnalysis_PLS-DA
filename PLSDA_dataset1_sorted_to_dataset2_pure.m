@@ -62,11 +62,6 @@ MZlist2 = double(table2array(data2(1,2:end)));
 ROIlist2 = string(data2{2:end,1});
 rawINT2 = double(table2array(data2(2:end,2:end)));
 
-% LEAKAGE TEST: shuffle Dataset 2 intensities within each m/z feature
-rng(1);
-for j = 1:size(rawINT2,2)
-    rawINT2(:,j) = rawINT2(randperm(size(rawINT2,1)), j);
-end
 
 if size(rawINT1,1) ~= height(metadata1)
     error('Dataset 1 intensity rows and metadata rows do not match.');
