@@ -97,11 +97,6 @@ YtrainIndex = classIndex(trainMask);
 trainBatches = batchLabels(trainMask);
 
 XtestRaw = X(testMask,:);
-% LEAKAGE TEST: permute test intensities within each feature
-rng(1);
-for j = 1:size(XtestRaw,2)
-    XtestRaw(:,j) = XtestRaw(randperm(size(XtestRaw,1)), j);
-end
 
 Ytest = Ydummy(testMask,:);
 YtestIndex = classIndex(testMask);
